@@ -1,0 +1,86 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{physics}
+
+
+\usepackage{lineno}
+
+
+\usepackage{lineno} % adding the line numbers package for easier editing.
+\usepackage{soul} % for editing purposes
+\renewcommand{\linenumberfont}{\normalfont\small\color{orange}}
+\setstcolor{red} % added for editing
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+\linenumbers\relax% Commence numbering lines
+
+
+\definecolor{purple}{rgb}{0.6,0.4,0.8}
+\newcommand{\ccedit}[1]{\textbf{\color{purple} {#1}}}
+% Helpful commands to hasten the notes
+%\newcommand{\epar}[1]{\partial_{#1}}
+\newcommand*{\sprime}{^\ensuremath{\prime}}
+\newcommand*{\dprime}{^{\ensuremath{\prime\prime}}}
+\newcommand{\argument}{(\vb{x}, t)}
+\newcommand{\argOne}{(x, t)}
+\newcommand{\mc}[1]{\mathcal{#1}}
+
+\newtheorem*{theorem*}{Theorem}
+%% this allows for theorems which are not automatically numbered
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+
+
+
+
+\title{Studying Features of the Wave Equation}
+\author{Carlos A. Cartagena-Sanchez}
+\date{Updated on \today}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The wave equation:
+\begin{equation}\label{eq:wave}
+    \psi \argument = c^2\grad{\psi \argument}
+\end{equation}
+
+The general solution of the 1D wave function is the some of two counter propagating waves\[F\argOne = f_-\argOne + f_+\argOne\].
+We know one solution to the wave equation is the sinusoidal functions, in particular the sine function, $\sin{(\omega t - kx)}$. The phase of the sinusoidal function is the standard linear phase function; do other phase function exists that satisfy the wave function?
+
+Suppose we have a general phase function $A\argOne$. Injecting the now extended sinusoidal function,$f\argOne$, into the wave equation, Eq:~\ref{eq:wave}.
+\textbf{Temporal Derivatives}
+\begin{align*}
+    \dot{f}\argOne &= \dot A\argOne \cos[ A\argOne]\\
+    \ddot{f}\argOne &= \ddot{A} \argOne \cos[ A\argOne] - [\dot A\argOne]^2\sin[A\argOne]\\
+\end{align*}
+\textbf{Spatial Derivatives}
+\begin{align*}
+    f\sprime \argOne &= A\sprime \argOne \cos[ A\argOne]\\
+    f{\dprime}\argOne &= A{\dprime}\argOne \cos[ A\argOne] - [A{\sprime}\argOne]^2\sin[A\argOne]\\
+\end{align*}
+If this extended sinusoidal function satisfies the wave equation then the following must be true.
+\begin{equation}
+    \frac{[\ddot A\argOne - c^2A\dprime\argOne]}{[(\dot A\argOne)^2 - c^2(A\sprime\argOne)^2]} = \tan(A\argOne)
+\end{equation}
+Rearranging the equation results, in what I define as, the phase wave equation.
+\begin{equation}\label{eq:phase_wave}
+    \ddot A\argOne - c^2A\dprime\argOne = [(\dot A\argOne)^2 - c^2(A\sprime\argOne)^2]\tan[A\argOne]
+\end{equation}
+We can see that if the $A\argOne$ is a wave then the phase wave equation holds. 
+\begin{theorem*}[1.0]
+Suppose $f\argOne$ and $g\argOne$ satisfy the wave equation, Eq:~\ref{eq:wave}. Then the composition of the functions satisfies the wave equation.
+\end{theorem*}
+The composition of wave functions satisfy the wave equation, meaning the composition are waves.
+
+The question is there a class of functions that satisfy the phase wave equation, Eq.~\ref{eq:phase_wave}? The one method that comes to mind is the brute force method, polynomial expansion.
+\end{document}
+    
